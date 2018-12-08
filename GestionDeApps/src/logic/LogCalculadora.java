@@ -1,5 +1,7 @@
 package logic;
 
+import javax.swing.JButton;
+
 import view.FrmCalculadora;
 
 public class LogCalculadora {
@@ -7,35 +9,72 @@ public class LogCalculadora {
 	private static Double operador1, operador2;
 	private static Double resultado = 0.0;
 	private static String operacion = "";
+	private static Boolean signo = false;	//false igual positivo
 
-	public static void impresionPantalla(String num) {
+	public static void impresionPantalla(JButton btn) {
 		
-		switch (num) {
+		switch (btn.getText()) {
 		case "1":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"1");
 			break;
 		case "2":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"2");
 			break;
 		case "3":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"3");
 			break;
 		case "4":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"4");
 			break;
 		case "5":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"5");
 			break;
 		case "6":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"6");
 			break;
 		case "7":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"7");
 			break;
 		case "8":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"8");
 			break;
 		case "9":
+			if(signo) {
+				FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"-");
+				signo = false;
+			}
 			FrmCalculadora.txtPantalla.setText(FrmCalculadora.txtPantalla.getText()+"9");
 			break;
 		case "0":
@@ -62,56 +101,99 @@ public class LogCalculadora {
 		}
 	}
 
-	public static void operacionLog(String op) {
+	public static void operacionLog(JButton btn) {
 
-		switch (op) {
+		switch (btn.getText()) {
 		case "+":
-			operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
-			FrmCalculadora.txtPantalla.setText(null);
-			operacion = "+";
+			if(!FrmCalculadora.txtPantalla.getText().equals("")) {
+				if(signo) {
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText())*(-1);
+				}else{
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());				
+				}
+				FrmCalculadora.txtPantalla.setText(null);
+				operacion = "+";
+			}
 			break;
 		case "-":
-			operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
-			FrmCalculadora.txtPantalla.setText(null);
-			operacion = "-";
+			if(!FrmCalculadora.txtPantalla.getText().equals("")) {
+				if(signo) {
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText())*(-1);
+				}else{
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());				
+				}
+				FrmCalculadora.txtPantalla.setText(null);
+				operacion = "-";
+			}else {
+				signo = true;
+			}
+			
 			break;
 		case "×":
-			operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
-			FrmCalculadora.txtPantalla.setText(null);
-			operacion = "×";
+			if(!FrmCalculadora.txtPantalla.getText().equals("")) {
+				if(signo) {
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText())*(-1);
+				}else{
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());				
+				}
+				FrmCalculadora.txtPantalla.setText(null);
+				operacion = "×";
+			}
 			break;
 		case "÷":
-			operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
-			FrmCalculadora.txtPantalla.setText(null);
-			operacion = "÷";
+			if(!FrmCalculadora.txtPantalla.getText().equals("")) {
+				if(signo) {
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText())*(-1);
+				}else{
+					operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());				
+				}
+				FrmCalculadora.txtPantalla.setText(null);
+				operacion = "÷";
+			}
 			break;
 		case "√":
-			operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
-			resultado = Math.sqrt(operador1);
-			FrmCalculadora.txtPantalla.setText(resultado.toString());
+			if(!FrmCalculadora.txtPantalla.getText().equals("")) {
+				operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
+				resultado = Math.sqrt(operador1);
+				FrmCalculadora.txtPantalla.setText(resultado.toString());
+			}
 			break;
 		case "%":
-			operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
-			FrmCalculadora.txtPantalla.setText(null);
-			operacion = "%";
+			if(!FrmCalculadora.txtPantalla.getText().equals("")) {
+				operador1 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
+				FrmCalculadora.txtPantalla.setText(null);
+				operacion = "%";
+			}
 			break;
 		case "=":
-			operador2 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());
+			if(!FrmCalculadora.txtPantalla.getText().equals("")) {
+				operador2 = Double.parseDouble(FrmCalculadora.txtPantalla.getText());				
+			}
 			switch (operacion) {
 			case "+":
-				resultado = operador1 + operador2;				
+				resultado = operador1 + operador2;		
+				operador1 = 0.0;
+				operador2 = 0.0;
 				break;
 			case "-":
-				resultado = operador1 - operador2;				
+				resultado = operador1 - operador2;
+				operador1 = 0.0;
+				operador2 = 0.0;
 				break;
 			case "×":
-				resultado = operador1 * operador2;				
+				resultado = operador1 * operador2;	
+				operador1 = 0.0;
+				operador2 = 0.0;
 				break;
 			case "÷":
-				resultado = operador1 / operador2;				
+				resultado = operador1 / operador2;
+				operador1 = 0.0;
+				operador2 = 0.0;
 				break;
 			case "%":
-				resultado = (operador1 * operador2)/ 100;				
+				resultado = (operador1 * operador2)/ 100;
+				operador1 = 0.0;
+				operador2 = 0.0;
 				break;
 			}
 			FrmCalculadora.txtPantalla.setText(resultado.toString());

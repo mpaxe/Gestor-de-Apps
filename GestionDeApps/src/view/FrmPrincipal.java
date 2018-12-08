@@ -1,5 +1,6 @@
 package view;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -14,6 +15,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class FrmPrincipal extends JFrame{
@@ -28,6 +32,11 @@ public class FrmPrincipal extends JFrame{
 	public JMenuBar menuBar;
 	public JLabel lblImagen;
 	public JMenuItem mntmCalculadora;
+	public BufferedImage miImage;
+	private JMenu mnJuegos;
+	private JMenuItem mntmJuegoDeCapitales;
+	private JMenuItem mntmTextos;
+	private JMenuItem mntmCreaArchivoDe;
 
 	public FrmPrincipal() {
 
@@ -41,18 +50,17 @@ public class FrmPrincipal extends JFrame{
 		lblLanzadorDeApp.setBounds(113, 5, 233, 22);
 		getContentPane().add(lblLanzadorDeApp);
 		
-		//Obtengo la imagen, tengo que poner ruta absoluta
-		ImageIcon img = new ImageIcon("/home/alvaro/eclipse-workspace/Avante/GestionDeApps/img/fondo.jpg");
-		//Escalo la imagen para que se ajuste al Jlabel
-		Image imagen = img.getImage().getScaledInstance(420, 199, Image.SCALE_DEFAULT);
-		//Creo un objeto imageIcon y lo instancio con la imagen redimesionada
-		ImageIcon imgRedimensionado = new ImageIcon(imagen);
-		lblImagen = new JLabel("");
-		
+		//Obtengo la imagen de la ruta relativa del proyecto
+		try {
+			miImage = ImageIO.read(new File("img/fondo.jpg"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		//Creo un objeto Image y lo instancio con la imagen y lo redimesiono a la vez
+		Image imageEscalada = new ImageIcon(miImage).getImage().getScaledInstance(420, 199, Image.SCALE_DEFAULT);
+		lblImagen = new JLabel(new ImageIcon(imageEscalada));			
 		lblImagen.setBounds(7, 38, 420, 199);
 		getContentPane().add(lblImagen);
-		//Añado la image al Jlabel
-		lblImagen.setIcon(imgRedimensionado);
 		
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -84,6 +92,14 @@ public class FrmPrincipal extends JFrame{
 		});
 		mnAplicaciones.add(mntmCalculaImc);
 		
+		JMenuItem mntmConversorBinarioA = new JMenuItem("Conversor binario a decimal");
+		mntmConversorBinarioA.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CtrPrincipal.lanzaCoversorBinADeci();
+			}
+		});
+		mnAplicaciones.add(mntmConversorBinarioA);
+		
 		JSeparator separator = new JSeparator();
 		mnAplicaciones.add(separator);
 		
@@ -98,11 +114,41 @@ public class FrmPrincipal extends JFrame{
 		JMenu mnTextos = new JMenu("Textos");
 		menuBar.add(mnTextos);
 		
-		JMenuItem mntmTextos = new JMenuItem("Textos");
+		mntmTextos = new JMenuItem("Textos");
 		mnTextos.add(mntmTextos);
+		
+		mntmCreaArchivoDe = new JMenuItem("Crea Archivo de Texto");
+		mnTextos.add(mntmCreaArchivoDe);
+		
+		JMenuItem mntmMezclaCadenas = new JMenuItem("Mezcla Cadenas");
+		mntmMezclaCadenas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CtrPrincipal.lanzaMezclaCadenas();
+			}
+		});
+		mnTextos.add(mntmMezclaCadenas);
+		
+		mnJuegos = new JMenu("Juegos");
+		menuBar.add(mnJuegos);
+		
+		mntmJuegoDeCapitales = new JMenuItem("Juego de capitales");
+		mntmJuegoDeCapitales.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CtrPrincipal.lanzaJuegoCapitales();
+			}
+		});
+		mnJuegos.add(mntmJuegoDeCapitales);
 		mntmTextos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CtrPrincipal.lanzAppCadenas();
+			}
+		});
+		
+		mntmCreaArchivoDe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CtrPrincipal.lanzaCreaArchTxt();
 			}
 		});
 		setVisible(true);

@@ -1,11 +1,13 @@
 package controller;
 
+import javax.swing.JButton;
+
 import logic.LogCalculadora;
 
 public class CtrCalculadora {
 
-	public static void imprimeNumero(String num) {
-		LogCalculadora.impresionPantalla(num);
+	public static void imprimeNumero(JButton btn) {
+		LogCalculadora.impresionPantalla(btn);
 	}
 
 	public static void borraPantalla() {
@@ -16,8 +18,8 @@ public class CtrCalculadora {
 		LogCalculadora.borraUltimoNumLog();
 	}
 
-	public static void operacion(String op) {
-		LogCalculadora.operacionLog(op);
+	public static void operacion(JButton btn) {
+		LogCalculadora.operacionLog(btn);
 	}
 	
 }

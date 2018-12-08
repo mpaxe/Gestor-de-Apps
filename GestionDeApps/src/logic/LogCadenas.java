@@ -17,9 +17,7 @@ public class LogCadenas {
 	public static void invertirElTexto() {
 		String cad = FrmCadena.txtCadena.getText();
 		String res = "";
-		for(int i = cad.length() - 1; 0 <= i ; i--) {
-			res += cad.charAt(i);
-		}
+		for(int i = cad.length() - 1; 0 <= i ;res += cad.charAt(i), i--);
 		FrmCadena.lblResult.setText(res);
 	}
 

@@ -61,7 +61,7 @@ public class FrmCalculadora extends JDialog{
 		btn1 = new JButton("1");
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("1");	
+				CtrCalculadora.imprimeNumero(btn1);	
 			}
 		});
 		panel.add(btn1);
@@ -69,7 +69,7 @@ public class FrmCalculadora extends JDialog{
 		btn2 = new JButton("2");
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("2");
+				CtrCalculadora.imprimeNumero(btn2);
 			}
 		});
 		panel.add(btn2);
@@ -77,7 +77,7 @@ public class FrmCalculadora extends JDialog{
 		btn3= new JButton("3");
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("3");
+				CtrCalculadora.imprimeNumero(btn3);
 			}
 		});
 		panel.add(btn3);
@@ -98,7 +98,7 @@ public class FrmCalculadora extends JDialog{
 		btn4 = new JButton("4");
 		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("4");
+				CtrCalculadora.imprimeNumero(btn4);
 			}
 		});
 		panel_1.add(btn4);
@@ -106,7 +106,7 @@ public class FrmCalculadora extends JDialog{
 		btn5 = new JButton("5");
 		btn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("5");
+				CtrCalculadora.imprimeNumero(btn5);
 			}
 		});
 		panel_1.add(btn5);
@@ -114,7 +114,7 @@ public class FrmCalculadora extends JDialog{
 		btn6 = new JButton("6");
 		btn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("6");
+				CtrCalculadora.imprimeNumero(btn6);
 			}
 		});
 		panel_1.add(btn6);
@@ -135,7 +135,7 @@ public class FrmCalculadora extends JDialog{
 		btn7 = new JButton("7");
 		btn7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("7");
+				CtrCalculadora.imprimeNumero(btn7);
 			}
 		});
 		panel_2.add(btn7);
@@ -143,7 +143,7 @@ public class FrmCalculadora extends JDialog{
 		btn8 = new JButton("8");
 		btn8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("8");
+				CtrCalculadora.imprimeNumero(btn8);
 			}
 		});
 		panel_2.add(btn8);
@@ -151,7 +151,7 @@ public class FrmCalculadora extends JDialog{
 		btn9 = new JButton("9");
 		btn9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("9");
+				CtrCalculadora.imprimeNumero(btn9);
 			}
 		});
 		panel_2.add(btn9);
@@ -159,7 +159,7 @@ public class FrmCalculadora extends JDialog{
 		btnDiv = new JButton("÷");
 		btnDiv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.operacion("÷");
+				CtrCalculadora.operacion(btnDiv);
 			}
 		});
 		panel_2.add(btnDiv);
@@ -172,7 +172,7 @@ public class FrmCalculadora extends JDialog{
 		btn0 = new JButton("0");
 		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero("0");
+				CtrCalculadora.imprimeNumero(btn0);
 			}
 		});
 		panel_3.add(btn0);
@@ -180,7 +180,7 @@ public class FrmCalculadora extends JDialog{
 		btnPunto = new JButton(".");
 		btnPunto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.imprimeNumero(".");
+				CtrCalculadora.imprimeNumero(btnPunto);
 			}
 		});
 		panel_3.add(btnPunto);
@@ -188,7 +188,7 @@ public class FrmCalculadora extends JDialog{
 		btnSuma = new JButton("+");
 		btnSuma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.operacion("+");
+				CtrCalculadora.operacion(btnSuma);
 			}
 		});
 		panel_3.add(btnSuma);
@@ -196,7 +196,7 @@ public class FrmCalculadora extends JDialog{
 		btnMulti = new JButton("×");
 		btnMulti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.operacion("×");
+				CtrCalculadora.operacion(btnMulti);
 			}
 		});
 		panel_3.add(btnMulti);
@@ -209,7 +209,7 @@ public class FrmCalculadora extends JDialog{
 		btnRaiz = new JButton("√");
 		btnRaiz.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.operacion("√");
+				CtrCalculadora.operacion(btnRaiz);
 			}
 		});
 		panel_4.add(btnRaiz);
@@ -217,7 +217,7 @@ public class FrmCalculadora extends JDialog{
 		btnPorce = new JButton("%");
 		btnPorce.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.operacion("%");
+				CtrCalculadora.operacion(btnPorce);
 			}
 		});
 		panel_4.add(btnPorce);
@@ -225,7 +225,7 @@ public class FrmCalculadora extends JDialog{
 		btnResta = new JButton("-");
 		btnResta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.operacion("-");
+				CtrCalculadora.operacion(btnResta);
 			}
 		});
 		panel_4.add(btnResta);
@@ -233,7 +233,7 @@ public class FrmCalculadora extends JDialog{
 		btnIgual = new JButton("=");
 		btnIgual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrCalculadora.operacion("=");
+				CtrCalculadora.operacion(btnIgual);
 			}
 		});
 		panel_4.add(btnIgual);
